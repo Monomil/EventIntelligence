@@ -38,7 +38,7 @@ def fetch_events(api_key: str = API_KEY) -> pd.DataFrame:
     total_pages = 1 
 
     try:
-
+        
         while current_page < total_pages:
             events_url = f"{BASE_URL}{EVENTS_ENDPOINT}.json?apikey={api_key}&countryCode=GB&size=200&page={current_page}"
             events_response = requests.get(events_url).json()
