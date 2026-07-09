@@ -31,122 +31,79 @@ VENUES_ENDPOINT = "/discovery/v2/venues"
 # Events
 # ---------------------------------------------------------------------------
 
-def fetch_events(country_code: str = "GB", page_size: int = 200) -> list[dict]:
-    """
-    Fetch all events for a given country from the Ticketmaster API.
 
-    Paginates through all available pages and returns the raw event records
-    as a flat list of dicts straight from the API response.
-
-    Args:
-        country_code: ISO 3166-1 alpha-2 country code (default "GB").
-        page_size:    Number of results per page (max 200).
-
-    Returns:
-        List of raw event dicts.
-    """
+def fetch_events(api_key: str = API_KEY) -> pd.DataFrame: 
     all_events = []
     current_page = 0
-    total_pages = 1  # Updated after the first response
+    total_pages = 1 
 
-    while current_page < total_pages:
-        url = (
-            f"{BASE_URL}{EVENTS_ENDPOINT}.json"
-            f"?apikey={API_KEY}&countryCode={country_code}"
-            f"&size={page_size}&page={current_page}"
-        )
-        response = requests.get(url)
-        response.raise_for_status()
-        data = response.json()
+    try:
 
-        # Extract the list of events from the nested response structure
-        page_events = data.get("_embedded", {}).get("events", [])
-        all_events.extend(page_events)
+        while current_page < total_pages:
+            events_url = f"{BASE_URL}{EVENTS_ENDPOINT}.json?apikey={api_key}&countryCode=GB&size=200&page={current_page}"
+            events_response = requests.get(events_url).json()
 
-        # Update the total page count from the response metadata
-        total_pages = data.get("page", {}).get("totalPages", 1)
-        current_page += 1
+            page_events = events_response.get('_embedded', {}).get('events', [])
+            all_events.extend(page_events)
 
-    print(f"Fetched {len(all_events)} events.")
-    return all_events
+            total_pages = events_response.get('page', {}).get('totalPages', 1)
+            current_page += 1
+
+        print(f"Successfully collected {len(all_events)} events total!")
+    
+    except Exception as e:
+        print(f"Cannot do so due to {e}!")
 
 
-def clean_events(raw_events: list[dict]) -> pd.DataFrame:
-    """
-    Extract and flatten the fields we care about from raw event records.
+    uk_events = []
+    try:
 
-    Pulls event metadata, classification (segment / genre / sub-genre),
-    venue info, and market data into a tidy DataFrame.
+        for event in all_events:
+            class_list = event.get("classifications") or []
+            cls = class_list[0] if class_list else {}
 
-    Args:
-        raw_events: List of raw event dicts returned by fetch_events().
+            venue_list = event.get("_embedded", {}).get("venues") or []
+            vn = venue_list[0] if venue_list else {}
 
-    Returns:
-        A pandas DataFrame with one row per event.
-    """
-    records = []
+            market_list = vn.get("markets") or []
+            mkt = market_list[0] if market_list else {}
+            event_data = {
+                "event_id": event.get("id"),
+                "name": event.get("name"),
+                "date": event.get("dates", {}).get("start", {}).get("localDate"),
+                "time": event.get("dates", {}).get("start", {}).get("localTime"),
+                "multi_day_event": event.get("dates", {}).get("spanMultipleDays"),
+                "legal_age_enforced": event.get("ageRestrictions", {}).get("legalAgeEnforced"),
 
-    for event in raw_events:
-        # Classifications (segment → genre → sub-genre)
-        class_list = event.get("classifications") or []
-        cls = class_list[0] if class_list else {}
+                "category_segment": cls.get("segment", {}).get("name"),
+                "category_genre": cls.get("genre", {}).get("name"),
+                "category_sub_genre": cls.get("subGenre", {}).get("name"),
 
-        # Primary venue
-        venue_list = event.get("_embedded", {}).get("venues") or []
-        vn = venue_list[0] if venue_list else {}
+                "all_inclusive_pricing": event.get("ticketing", {}).get("allInclusivePricing", {}).get("enabled"),
 
-        # Primary market for the venue
-        market_list = vn.get("markets") or []
-        mkt = market_list[0] if market_list else {}
+                "venue_id": vn.get("id"),
+                "venue_name": vn.get("name"),
+                "address": vn.get("address", {}).get("line1"),
+                "postcode": vn.get("postalCode"),
+                "city": vn.get("city", {}).get("name"),
+                "longitude": vn.get("location", {}).get("longitude"),
+                "latitude": vn.get("location", {}).get("latitude"),
 
-        records.append({
-            "event_id":             event.get("id"),
-            "name":                 event.get("name"),
-            "date":                 event.get("dates", {}).get("start", {}).get("localDate"),
-            "time":                 event.get("dates", {}).get("start", {}).get("localTime"),
-            "multi_day_event":      event.get("dates", {}).get("spanMultipleDays"),
-            "legal_age_enforced":   event.get("ageRestrictions", {}).get("legalAgeEnforced"),
+                "markets": mkt.get("name"),
+                "markets_id": mkt.get("id"),
+                "url": event.get("url")
+            }
 
-            # Category / classification fields
-            "category_segment":     cls.get("segment", {}).get("name"),
-            "category_genre":       cls.get("genre", {}).get("name"),
-            "category_sub_genre":   cls.get("subGenre", {}).get("name"),
+            uk_events.append(event_data)
 
-            "all_inclusive_pricing": event.get("ticketing", {}).get(
-                                        "allInclusivePricing", {}
-                                    ).get("enabled"),
+        df_events = pd.DataFrame(uk_events)
+    except Exception as e:
+        print(f"Failed extraction due to {e}, please check your code!")
 
-            # Venue fields
-            "venue_id":   vn.get("id"),
-            "venue_name": vn.get("name"),
-            "address":    vn.get("address", {}).get("line1"),
-            "postcode":   vn.get("postalCode"),
-            "city":       vn.get("city", {}).get("name"),
-            "longitude":  vn.get("location", {}).get("longitude"),
-            "latitude":   vn.get("location", {}).get("latitude"),
-
-            # Market fields
-            "market":    mkt.get("name"),
-            "market_id": mkt.get("id"),
-
-            "url": event.get("url"),
-        })
-
-    return pd.DataFrame(records)
+    return df_events    
 
 
-def get_events_df(country_code: str = "GB") -> pd.DataFrame:
-    """
-    Convenience wrapper: fetch and clean events in one call.
 
-    Args:
-        country_code: ISO 3166-1 alpha-2 country code (default "GB").
-
-    Returns:
-        A clean pandas DataFrame of events.
-    """
-    raw = fetch_events(country_code)
-    return clean_events(raw)
 
 
 # ---------------------------------------------------------------------------
