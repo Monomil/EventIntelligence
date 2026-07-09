@@ -3,12 +3,15 @@ from ticketmaster import fetch_events
 import pandas as pd
 from get_venues import get_venues
 import plotly.express as px
+import seaborn as sns
 
+st.set_page_config(
+    page_title="Event Intelligence",
+    layout="wide"
+)
 
-
-
-col1, col2 = st.columns(2)
-
+c = st.container(border = True)
+# col1, col2 = st.columns(2)
 
 events_df = fetch_events()
 
@@ -55,7 +58,7 @@ fig = px.bar(
     labels={"venue_name": "<b>Venue Name<b>", "events_per_venue": "<b>Number of Events<b>"},
     hover_name="venue_name", # This puts the venue name in bold at the top of the tooltip
     color="events_per_venue",     # Optional: adds a nice color gradient based on counts
-    height=600,
+    height=800,
     color_continuous_scale="Viridis"
 )
 
@@ -63,11 +66,22 @@ fig.update_layout(
     xaxis_tickangle=-45, # Tilts the venue names so they don't overlap
     plot_bgcolor="rgba(0,0,0,0)", # Gives it a clean white background
     title= {'x': 0.5,
-            'xanchor': 'center'
-    }
+            'xanchor': 'center',
+            "font": {"size": 28}
+    },
+    xaxis_title_font=dict(size=20),
+    yaxis_title_font=dict(size=20)
 )
 
-with col1:
+fig.update_xaxes(
+    tickfont=dict(size=14)
+)
+fig.update_yaxes(
+    tickfont=dict(size=14)
+)
+
+
+with c:
 
     col_text, col_slider = st.columns([1, 3])
 
@@ -96,7 +110,118 @@ with col1:
 
 
 
-with col2:
-    st.write("hello")
+# Second plot
+
+c2 = st.container(border = True)
+
+city_counts = (
+    events_df.groupby("city")["event_id"]
+    .count()
+    .reset_index()
+)
+
+
+venue_counts = (
+    events_df.groupby("city")["venue_id"]
+    .nunique()
+    .reset_index()
+)
+
+
+ratios = city_counts.merge(venue_counts, on="city")
+ratios["ratio"] = ratios["event_id"] / ratios["venue_id"]
+
+
+plot_df = (
+    ratios.drop(index=21)
+    .sort_values("ratio", ascending=False)
+)
+
+
+fig = px.bar(
+    plot_df,
+    x="city",
+    y="ratio",
+    color="ratio",
+    color_continuous_scale="Viridis",   # Change if desired
+    title="Average Events per Venue by City",
+    labels={
+        "city": "City",
+        "ratio": "Events per Venue"
+    },
+    height = 800,
+)
+
+fig.update_layout(
+    xaxis_tickangle=-45,
+    xaxis_title="<b>City<b>",
+    yaxis_title="<b>Events per Venue<b>",
+    title= {'x': 0.5,
+            'xanchor': 'center',
+            "font": {"size": 28}
+    },
+    xaxis_title_font=dict(size=20),
+    yaxis_title_font=dict(size=20)
+)
+
+fig.update_xaxes(
+    tickfont=dict(size=14)
+)
+fig.update_yaxes(
+    tickfont=dict(size=14)
+)
+
+
+with c2:
+    with st.spinner("Loading Graph..."):
+        st.plotly_chart(fig, use_container_width=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# with col1:
+
+#     col_text, col_slider = st.columns([1, 3])
+
+#     with st.spinner("Loading Chart"): 
+#         col_text, col_slider = st.columns([1, 3])
+#         with col_text:
+#             st.text_input(
+#             "Enter a number",
+#             value=str(st.session_state.num_venues),
+#             key="venue_text_input",
+#             on_change=apply_text_input,
+#             help=f"Type a number between {min_venues} and {max_venues}, then press Enter"
+#             )
+
+#         with col_slider:
+#             num_venues = st.slider(
+#             "Number of venues to display",
+#             min_value=min_venues,
+#             max_value=max_venues,
+#             value=st.session_state.num_venues,
+#             step=1,
+#             key="num_venues"   # binds directly to session_state.num_venues
+#             )
+        
+#         st.plotly_chart(fig, use_container_width=True)
+
+
+
+# with col2:
+#     st.write("hello")
     
     
