@@ -29,44 +29,44 @@ capacity_data_url = "https://drive.google.com/uc?export=download&id=1QtDJd2XOa51
 
 # Capacity Data
 
-def fetch_capacity(capacity_url: str = capacity_data_url) -> pd.DataFrame:
-    """
-    """
-    try:
-        response = requests.get(capacity_url)
-        response.raise_for_status() 
+# def fetch_capacity(capacity_url: str = capacity_data_url) -> pd.DataFrame:
+#     """
+#     """
+#     try:
+#         response = requests.get(capacity_url)
+#         response.raise_for_status() 
 
-        with open('extracted_dictionary.txt', 'wb') as file:
-            file.write(response.content)
+#         with open('extracted_dictionary.txt', 'wb') as file:
+#             file.write(response.content)
         
-        print("File downloaded and saved successfully.")
+#         print("File downloaded and saved successfully.")
 
-    except Exception as e:
-        print(f"Download failed! Check your URL or internet connection. Error: {e}")
+#     except Exception as e:
+#         print(f"Download failed! Check your URL or internet connection. Error: {e}")
 
-    try:
-        with open("extracted_dictionary.txt", "r", encoding="utf-8") as f:
-            file_content = f.read()
+#     try:
+#         with open("extracted_dictionary.txt", "r", encoding="utf-8") as f:
+#             file_content = f.read()
 
-        file_content = file_content.replace('null', 'None')
+#         file_content = file_content.replace('null', 'None')
 
-        local_vars = {}
-        exec(file_content, globals(), local_vars)
+#         local_vars = {}
+#         exec(file_content, globals(), local_vars)
 
-        extracted_data = local_vars.get("data")
+#         extracted_data = local_vars.get("data")
 
-        if extracted_data is not None:
-            df_capacity = pd.DataFrame(extracted_data)
-            print("\nDataFrame Head:")
-            print(df_capacity.head())
-            print(f"\nTotal rows: {len(df_capacity)}")
+#         if extracted_data is not None:
+#             df_capacity = pd.DataFrame(extracted_data)
+#             print("\nDataFrame Head:")
+#             print(df_capacity.head())
+#             print(f"\nTotal rows: {len(df_capacity)}")
             
-            return df_capacity
-        else:
-            print("Error: Could not find a 'data' variable inside the executed file.")
+#             return df_capacity
+#         else:
+#             print("Error: Could not find a 'data' variable inside the executed file.")
 
-    except FileNotFoundError:
-        print("File not found, correct your logic or check your download url!")
+#     except FileNotFoundError:
+#         print("File not found, correct your logic or check your download url!")
 
 
 # Events
@@ -137,22 +137,30 @@ def fetch_events(api_key: str = API_KEY) -> pd.DataFrame:
 
         df_events = pd.DataFrame(uk_events)
 
-        fetch_capacity()
+        df_capacity = pd.read_csv("https://drive.google.com/uc?export=download&id=1LHb02h-llMyKpF96DzM7hqyuZAIotLa_")
 
         df_events = pd.merge(df_events, df_capacity, on='venue_name', how='left')
 
-        df_events.drop(columns= ["Location"], inplace = True)
-
-        df_events.rename(columns= {"Total_Capacity" : "total_capacity"}, inplace = True)
+        # df_events["total_capacity"] = df_events["total_capacity"].fillna(0)
 
     except Exception as e:
 
         print(f"Failed extraction due to {e}, please check your code!")
     
-   
-
 
     return df_events    
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Venues
 

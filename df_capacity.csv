@@ -1,0 +1,325 @@
+,venue_name,Location,total_capacity
+0,Glastonbury Festival,Pilton,210000
+1,Download Festival,Donington Park,110000
+2,Wembley Stadium,London,90000
+3,Twickenham Stadium,London,82000
+4,London Stadium,London,80000
+5,Reading and Leeds Festival,,80000
+6,Roundhay Park,Leeds,79999
+7,Old Trafford,Greater Manchester,74879
+8,Millennium Stadium,Cardiff,74500
+9,Creamfields,Daresbury,70000
+10,Murrayfield Stadium,Edinburgh,67144
+11,National Bowl,Milton Keynes,65000
+12,Celtic Park,Glasgow,64411
+13,Tottenham Hotspur Stadium,London,62000
+14,Anfield,Liverpool,61276
+15,Emirates Stadium,London,60704
+16,City of Manchester Stadium,Greater Manchester,60000
+17,Stadium of Light,Sunderland,60000
+18,Hill Dickinson Stadium,Liverpool,52769
+19,Hampden Park,Glasgow,51866
+20,Ibrox Stadium,Glasgow,50817
+21,TRNSMT,Glasgow,50000
+22,Old Trafford Cricket Ground,Greater Manchester,50000
+23,Tramlines Festival,Sheffield,50000
+24,Villa Park,Birmingham,42682
+25,Finsbury Park,London,40000
+26,Goodison Park,Liverpool,39572
+27,Elland Road,Leeds,37792
+28,Glasgow Summer Sessions,,35000
+29,Highest Point Festival,Williamson Park,35000
+30,Hillsborough Stadium,Sheffield,34835
+31,Pride Park Stadium,Derby,33597
+32,Coventry Building Society Arena,,32753
+33,King Power Stadium,Leicester,32500
+34,Bramall Lane,Sheffield,32050
+35,American Express Stadium,Brighton and Hove,31876
+36,Ewood Park,Blackburn,31367
+37,Stadium MK,Milton Keynes,30500
+38,Truck Festival,Steventon,30000
+39,Molineux Stadium,Wolverhampton,31700
+40,MKM Stadium,Kingston upon Hull,25400
+41,Falkirk Stadium,Falkirk,25000
+42,Shambala Festival,Kelmarsh,25000
+43,Oakwell Stadium,Barnsley,23287
+44,Swansea.com Stadium,Swansea,21088
+45,Pittodrie Stadium,Aberdeen,20866
+46,Easter Road,Edinburgh,20421
+47,Tynecastle Park,Edinburgh,20099
+48,Bloodstock Open Air,"Catton Hall, Derby",20000
+49,Terminal V,Edinburgh,20000
+50,Gloworm Festival,Thoresby Park,20000
+51,Clapham Common,London,20000
+52,Craven Park,Kingston upon Hull,12225
+53,Meadow Lane,Nottingham,19841
+54,Colchester Community Stadium,Colchester,17000
+55,Eco-Power Stadium,Doncaster,15231
+56,Nass Festival,Shepton Mallet,15000
+57,Racecourse Ground,Wrexham,13341
+58,AESSEAL New York Stadium,Rotherham,12021
+59,Sincil Bank,Lincoln,10669
+60,SMH Group Stadium,Chesterfield,10292
+61,One Call Stadium,Mansfield,10022
+62,Riverside Festival Glasgow,,10000
+63,Kelburn Garden Party,,4000
+64,Co-op Live,Manchester,23500
+65,Manchester Arena,Manchester,21000
+66,The O2 Arena,London,20000
+67,Utilita Arena,Birmingham,16000
+68,P&J Live,Aberdeen,16000
+69,Resorts World Arena,Birmingham,13928
+70,Drumsheds,London,15000
+71,First Direct Arena,Leeds,13500
+72,Sheffield Arena,,13500
+73,OVO Hydro,Glasgow,13000
+74,Wembley OVO Arena,London,12500
+75,SEC Centre,Glasgow,12500
+76,"Odyssey, Belfast, The O2 Belfast",,11058
+77,Utilita Arena Newcastle,,11000
+78,"Liverpool Arena, M&S Bank Arena",Liverpool,11000
+79,Motorpoint Arena Nottingham,Nottingham,10000
+80,"Cardiff International Arena, Utilita Arena Cardiff",,12500
+81,Copper Box Arena,London,7500
+82,Lee Valley VeloPark,London,7000
+83,Farnborough International Exhibition & Conference Centre (Hall 1),Farnborough,12000
+84,National Exhibition Centre (Hall 4),Birmingham,12000
+85,National Exhibition Centre (Hall 5),Birmingham,8000
+86,Manchester Central Convention Complex,,10900
+87,Alexandra Palace,London,17500
+88,"The Grand Hall, Olympia London",,11000
+89,Exhibition Centre Liverpool,,7000
+90,ExCeL London (event halls),,65000
+91,ExCeL London (ICC Auditorium),,5000
+92,International Convention Centre Wales,Newport,1500
+93,Bournemouth International Centre,Bournemouth,10500
+94,Royal Albert Hall,London,5544
+95,"Hammersmith Apollo, Eventim Apollo",London,8671
+96,O2 Brixton Academy,London,4921
+97,Brighton Centre,Brighton,4500
+98,"Bradford Odeon, Bradford Live",Bradford,7400
+99,Plymouth Pavilions,Plymouth,4000
+100,British Airways ARC,London,3800
+101,Bridlington Spa,Bridlington,3800
+102,Hull Arena,Kingston upon Hull,3750
+103,Forum Birmingham,Birmingham,3500
+104,"King George's Hall, Blackburn, King George's Hall",Blackburn,3500
+105,Blackpool Winter Gardens,Blackpool,3500
+106,Connexin Live Arena,[[Kingston upon Hull]],3500
+107,O2 Apollo Manchester,Manchester,3500
+108,O2 Victoria Warehouse,Manchester,3500
+109,Swansea Arena,Swansea,3500
+110,"Wolverhampton Civic Hall, The Halls Wolverhampton",,5243
+111,Roundhouse (venue),London,5000
+112,Troxy,London,3100
+113,Edinburgh Playhouse,Edinburgh,3059
+114,O2 Academy Birmingham,Birmingham,3859
+115,"Edinburgh Corn Exchange, Edinburgh Corn Exchange",Edinburgh,3000
+116,Birmingham Digbeth Secretspace,Birmingham,4300
+117,Empress Ballroom,Blackpool,3000
+118,Planet Ice Coventry - SkyDome Arena,Coventry,3000
+119,Usher Hall,Edinburgh,5100
+120,Royal Festival Hall,London,2895
+121,"The O2, Indigo at The O2",London,2750
+122,Manchester Academy (All Academies combined),Manchester,4545
+123,O2 Academy Glasgow,Glasgow,2500
+124,Glasgow Royal Concert Hall,Glasgow,2500
+125,Portsmouth Guildhall,Portsmouth,2500
+126,"Venue Cymru, Arena and Theatre Auditorium",Llandudno,3950
+127,Planet Ice Milton Keynes Arena,Milton Keynes,2500
+128,"Nottingham Royal Concert Hall, Royal Concert Hall",Nottingham,2499
+129,"Rock City (venue), Rock City",Nottingham,2450
+130,"Bridgewater Hall, The Bridgewater Hall",Manchester,2371
+131,London Coliseum,London,2358
+132,Liverpool Empire Theatre,Liverpool,2348
+133,Mountford Hall,Liverpool,2300
+134,London Palladium,London,2300
+135,O2 Forum Kentish Town,London,2300
+136,O2 Academy Leeds,Leeds,2300
+137,Caird Hall,Dundee,3500
+138,"Sheffield City Hall, City Hall",Sheffield,2271
+139,Mayflower Theatre,Southampton,2270
+140,Royal Opera House,London,2268
+141,"Symphony Hall, Birmingham",,2262
+142,"The Forum, Hertfordshire, The Forum",Hertfordshire,2250
+143,Planet Ice Leeds Arena,Leeds,2200
+144,Sunderland Empire,Sunderland,2200
+145,De Montfort Hall,Leicester,2200
+146,O2 Academy Sheffield,Sheffield,2150
+147,NX Newcastle,,2135
+148,"Newcastle City Hall, O2 City Hall Newcastle",,2135
+149,Bristol Beacon,Bristol,3990
+150,Lyceum Theatre,London,2096
+151,O2 Institute,Birmingham,2000
+152,Brentwood Centre,,2000
+153,Glasgow City Halls,Glasgow,2000
+154,Shepherd's Bush Empire,London,2000
+155,Tobacco Dock,London,2000
+156,"New Cross, The Venue",London,2000
+157,"Albert Hall, Manchester",,2000
+158,Newport Leisure Centre,Newport,2000
+159,Watford Colosseum,Watford,2000
+160,Liverpool Olympia,Liverpool,1960
+161,Bristol Hippodrome,Bristol,1951
+162,Barbican Centre,London,2149
+163,Edinburgh Festival Theatre,Edinburgh,1915
+164,Barrowland Ballroom,Glasgow,1900
+165,Winter Gardens,Margate,1900
+166,York Barbican,York,3400
+167,Brighton Dome,Brighton,3500
+168,Cambridge Corn Exchange,Cambridge,1849
+169,Hull City Hall,Kingston upon Hull,3000
+170,O2 Academy Bournemouth,Bournemouth,1800
+171,"Baths Hall, The Baths Hall",Scunthorpe,2821
+172,New Theatre Oxford,Oxford,1785
+173,O2 Academy Liverpool,Liverpool,1750
+174,Southampton Guildhall,Southampton,1749
+175,Heaven,London,1725
+176,"Sage Gateshead, The Glasshouse International Centre for Music",Newcastle Gateshead,2150
+177,G Live,Guilford,1700
+178,O2 Academy Bristol,Bristol,1650
+179,"The Forum, Bath",Bath,1640
+180,Cliffs Pavilion,Southend-on-sea,1630
+181,Marble Factory,Bristol,1600
+182,HERE at Outernet,London,1600
+183,Cardiff University Students' Union,Cardiff,1600
+184,The Engine Shed,Lincoln,1600
+185,Perth Concert Hall,Perth,2800
+186,Regent Theatre,Stoke-on-Trent,1600
+187,Shakespeare's Globe Theatre,London,1570
+188,Sadler's Wells Theatre,London,1560
+189,Union of UEA Students,Norwich,1550
+190,Warwick Arts Centre,Coventry,2651
+191,Victoria Theatre,Halifax,1512
+192,De La Warr Pavilion,Bexhill,1500
+193,Leith Theatre,Edinburgh,1500
+194,Regent Theatre,Ipswich,1500
+195,Koko,London,1500
+196,Electric Brixton,London,1500
+197,O2 Institute,Birmingham,2850
+198,The O2 Ritz,Manchester,1500
+199,"University of Exeter, Great Hall",Exeter,2150
+200,St Augustine's Cultural Arts,Brighton,2500
+201,Victoria Hall,Stoke-on-Trent,1467
+202,O2 Academy Leicester,Leicester,1450
+203,Shaftesbury Theatre,London,1416
+204,Bath Pavilion,Bath,1400
+205,"The Spotlight, Hoddesdon",,1926
+206,"King's Theatre, Edinburgh",,1350
+207,London Hippodrome,London,1340
+208,Theatre Royal,Norwich,1300
+209,New Victoria Theatre,Woking,1300
+210,City Hall,Salisbury,3563
+211,Music Hall,Aberdeen,1281
+212,Cambridge Theatre,London,1231
+213,Portsmouth Pyramids Centre,Portsmouth,1700
+214,Rialto Reborn,Coventry,1750
+215,The Telegraph Building,Belfast,1200
+216,The Hexagon,Reading,1200
+217,Alban Arena,St Albans,2050
+218,Embassy Theatre,Skegness,1168
+219,Royal National Theatre,London,2450
+220,Grand Central Hall,Liverpool,1150
+221,Scala,London,1145
+222,Sondheim Theatre,London,1137
+223,Theatre Royal,Nottingham,1107
+224,Electric Ballroom,London,1100
+225,Grand Theatre,Blackpool,1100
+226,Electric Bristol,Bristol,1100
+227,Lyceum Theatre,Sheffield,1068
+228,Old Vic,London,1067
+229,"The Leadmill, Electric Studios",Sheffield,1050
+230,O2 Academy Oxford,,1020
+231,Royal Shakespeare Theatre,Stratford-upon-Avon,1000
+232,Citadel Arts Centre,St Helens,1000
+233,Tramshed,Cardiff,1000
+234,Weymouth Pavilion,Weymouth,988
+235,Crucible Theatre,Sheffield,980
+236,Queen's Hall,Edinburgh,1701
+237,Southampton Engine Rooms,Southampton,860
+238,The Liquid Room,Edinburgh,800
+239,Floral Pavilion Theatre,,814
+240,"Royal Comedy Theatre, The Harold Pinter Theatre",London,796
+241,Royal Lyceum Theatre,Edinburgh,658
+242,Tom Stoppard Theatre,London,640
+243,Cheltenham Town Hall,Cheltenham,978
+244,Theatre Royal,Brighton,952
+245,Orchard Theatre,Dartford,950
+246,Queen Elizabeth Hall,London,913
+247,Epic Studios,Norwich,900
+248,Corn Exchange,Ipswich,1700
+249,The Aquarium,Lowestoft,900
+250,Malvern Theatres,Worcestershire,850
+251,Scala,Kings Cross,800
+252,O2 Academy Islington,Islington,800
+253,Princess Royal Theatre,Port Talbot,798
+254,Churchill Theatre,Bromley,781
+255,Vibez,Newport,750
+256,Union Chapel,"Islington, London",750
+257,Albert Hall,Nottingham,750
+258,Limelight,Belfast,750
+259,Lemongrove,Exeter,700
+260,Lighthouse,Poole,669
+261,Playhouse Theatre,Oxford,663
+262,The Caves Edinburgh,Edinburgh,650
+263,Victoria Hall,Stoke-on-Trent,644
+264,The Dome,London,600
+265,The Garage,London,600
+266,New Vic Theatre,Stoke-on-Trent,600
+267,Concorde 2,Brighton,600
+268,Sohoplace,London,600
+269,Yoko Ono Lennon Centre,Liverpool,1000
+270,Yvonne Arnaud Theatre,Guildford,586
+271,Stephan Joseph Theatre,Scarborough,569
+272,Lemon Tree,Aberdeen,550
+273,Under The Bridge,Fulham,550
+274,Bloomsbury Theatre,London,535
+275,Band on the Wall,Manchester,520
+276,Britannia Adelphi Hotel,Liverpool,500
+277,Camden Underworld,Camden Town,500
+278,The Old Market,Hove,500
+279,Corn Exchange,Exeter,800
+280,The Fox and Firkin,London,499
+281,STYX,North London,499
+282,Ruskin Arms,London,499
+283,New Theatre Royal Lincoln,Lincoln,475
+284,An Seòmar,Scotland,450
+285,Buskers,Dundee,450
+286,The Stables,Milton Keynes,448
+287,The Magic Garden,London,380
+288,Purcell Room,South Bank,367
+289,Jazz Cafe,London,350
+290,100 Club,London,350
+291,MK11 Live Music Venue,Milton Keynes,330
+292,The Dome,London,300
+293,"Tunnels, Aberdeen",,500
+294,Drummomds,Aberdeen,300
+295,Electric Circus,Edinburgh,300
+296,The Mart Theatre,Skipton,300
+297,The Bongo Club,Edinburgh,300
+298,The Standard Music Venue,Walthamstow,300
+299,The Boileroom,Guildford,300
+300,Ronnie Scott's,London,300
+301,Phoenix,Exeter,458
+302,Fulham Greyhound,London,275
+303,"The Borderline (music venue), The Borderline",London,275
+304,Sheffield Library Theatre,Sheffield,260
+305,The Victoria Wood Theatre,Bowness-on-Windermere,257
+306,Century Theatre,Leicestershire,206
+307,Off The Square,Manchester,200
+308,The Voodoo Rooms,Edinburgh,200
+309,The Half Moon,Putney,200
+310,The Horn,St Albans,200
+311,The Rose Theatre,Chesterfield,160
+312,DIY Space For London,Bermondsey,160
+313,The Leeds Club,Leeds,150
+314,"Dublin Castle, Camden",London,150
+315,Vintage Rockbar,Doncaster,150
+316,House of Detention,Clerkenwell,130
+317,606 Club,London,120
+318,Sneaky Pete’s,Edinburgh,100
+319,The New Headingley Club,Leeds,100
+320,Vortex Jazz Club,London,100
+321,The Lion Theatre,Horncastle,96
+322,Cellar,Aberdeen,80
+323,Bawtry Phoenix Theatre,Bawtry,72
