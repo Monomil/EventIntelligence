@@ -443,8 +443,7 @@ ratios["ratio"] = (
 )
 
 plot_df = (
-    ratios.drop(index=21)
-    .sort_values(
+    ratios.sort_values(
         "ratio",
         ascending=False,
     )
