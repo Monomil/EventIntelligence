@@ -11,12 +11,12 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-colour_palette = ["#1A3A8F", # Deep navy blue — the dominant structural colour
-               "#6B35C8", # Mid purple — the gradient midpoint
-               "#00B4C8", # Teal/cyan — the upward arrow highlight
-               "#0D1F5C", # Near-black navy — shadows and depth
-               "#C8B8F0", # Pale lavender — for backgrounds or subtle fills
-               "#F4F4F6"  # Off-white — clean background
+colour_palette = ["#1A3A8F", # Deep navy blue 
+               "#6B35C8", # Mid purple 
+               "#00B4C8", # Teal/cyan 
+               "#0D1F5C", # Near-black navy 
+               "#C8B8F0", # Pale lavender 
+               "#F4F4F6"  # Off-white  
 ]
 
 st.set_page_config(
@@ -59,7 +59,7 @@ def apply_text_input():
         val = int(raw)
         st.session_state.num_venues = max(min_venues, min(val, max_venues))
     except ValueError:
-        pass  # ignore non-numeric input; slider keeps its current value
+        pass 
 
 
 
@@ -79,8 +79,8 @@ fig = px.bar(
 )
 
 fig.update_layout(
-    xaxis_tickangle=-45, # Tilts the venue names so they don't overlap
-    plot_bgcolor="rgba(0,0,0,0)", # Gives it a clean white background
+    xaxis_tickangle=-45, 
+    plot_bgcolor="rgba(0,0,0,0)", 
     title= {'x': 0.5,
             'xanchor': 'center',
             "font": {"size": 28}
@@ -119,7 +119,7 @@ with c:
             max_value=max_venues,
             value=st.session_state.num_venues,
             step=1,
-            key="num_venues"   # binds directly to session_state.num_venues
+            key="num_venues"  
             )
         
         st.plotly_chart(fig, use_container_width=True)
@@ -132,7 +132,6 @@ with c:
 
 c2 = st.container(border=True)
 
-# Prepare venue totals for the controls
 
 venue_totals_segment = (
     events_df["venue_name"]
@@ -231,7 +230,7 @@ with c2:
             )
         ].copy()
 
-        # Preserve busiest-to-least-busy order
+      
 
         display_segment_df["venue_name"] = pd.Categorical(
             display_segment_df["venue_name"],
@@ -244,7 +243,7 @@ with c2:
             .sort_values("venue_name")
         )
 
-        # Create stacked bar chart
+        # stacked bar chart
 
         fig_stacked = px.bar(
             display_segment_df,
@@ -347,76 +346,7 @@ with c2:
             use_container_width=True,
         )
 
-
-
-
-
-
 # Third plot
-
-# c3 = st.container(border = True)
-
-# city_counts = (
-#     events_df.groupby("city")["event_id"]
-#     .count()
-#     .reset_index()
-# )
-
-
-# venue_counts = (
-#     events_df.groupby("city")["venue_id"]
-#     .nunique()
-#     .reset_index()
-# )
-
-
-# ratios = city_counts.merge(venue_counts, on="city")
-# ratios["ratio"] = ratios["event_id"] / ratios["venue_id"]
-
-
-# plot_df = (
-#     ratios.drop(index=21)
-#     .sort_values("ratio", ascending=False)
-# )
-
-
-# fig = px.bar(
-#     plot_df,
-#     x="city",
-#     y="ratio",
-#     color="ratio",
-#     color_continuous_scale = colour_palette,   # Change if desired
-#     title="Average Events per Venue by City",
-#     labels={
-#         "city": "City",
-#         "ratio": "Events per Venue"
-#     },
-#     height = 800,
-# )
-
-# fig.update_layout(
-#     xaxis_tickangle=-45,
-#     xaxis_title="<b>City<b>",
-#     yaxis_title="<b>Events per Venue<b>",
-#     title= {'x': 0.5,
-#             'xanchor': 'center',
-#             "font": {"size": 28}
-#     },
-#     xaxis_title_font=dict(size=20),
-#     yaxis_title_font=dict(size=20)
-# )
-
-# fig.update_xaxes(
-#     tickfont=dict(size=14)
-# )
-# fig.update_yaxes(
-#     tickfont=dict(size=14)
-# )
-
-# with c3:
-
-#     st.plotly_chart(fig, use_container_width=True)
-
 
 c3 = st.container(border=True)
 
@@ -539,95 +469,6 @@ with c3:
 
 
 # Fourth plot
-
-
-# c4 = st.container(border=True)
-
-# venue_counts_by_city = (
-#     events_df
-#     .groupby("city")["venue_id"]
-#     .nunique()
-#     .reset_index(name="venue_count")
-#     .sort_values("venue_count", ascending=False)
-# )
-
-# fig_city_venues = px.bar(
-#     venue_counts_by_city,
-#     x="city",
-#     y="venue_count",
-#     color="venue_count",
-#     color_continuous_scale=colour_palette,
-#     title="Number of Venues per City",
-#     labels={
-#         "city": "City",
-#         "venue_count": "Number of Venues",
-#     },
-#     hover_name="city",
-#     hover_data={
-#         "city": False,
-#         "venue_count": True,
-#     },
-#     height=800,
-# )
-
-# fig_city_venues.update_layout(
-#     template="plotly_dark",
-#     xaxis_tickangle=-45,
-#     title={
-#         "x": 0.5,
-#         "xanchor": "center",
-#         "font": {
-#             "size": 28,
-#             "color": "white",
-#         },
-#     },
-#     font={
-#         "color": "white",
-#     },
-#     xaxis_title_font={
-#         "size": 20,
-#         "color": "white",
-#     },
-#     yaxis_title_font={
-#         "size": 20,
-#         "color": "white",
-#     },
-#     coloraxis_colorbar={
-#         "title": "Venues",
-#         "tickfont": {
-#             "color": "white",
-#         },
-#         "title_font": {
-#             "color": "white",
-#         },
-#     },
-#     margin={
-#         "t": 100,
-#         "b": 170,
-#     },
-# )
-
-# fig_city_venues.update_xaxes(
-#     tickfont={
-#         "size": 14,
-#         "color": "white",
-#     }
-# )
-
-# fig_city_venues.update_yaxes(
-#     tickfont={
-#         "size": 14,
-#         "color": "white",
-#     },
-#     gridcolor="rgba(255,255,255,0.15)",
-# )
-
-# with c4:
-#     st.plotly_chart(
-#         fig_city_venues,
-#         use_container_width=True,
-#     )
-
 
 c4 = st.container(border=True)
 
